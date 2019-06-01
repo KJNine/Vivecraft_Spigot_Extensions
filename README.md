@@ -1,4 +1,4 @@
-# Vivecraft Spigot Extensions
+# Vivecraft_Spigot_Extensions
 VSE is a companion plugin for [Vivecraft](http://www.vivecraft.org), the VR mod for Java Minecraft. 
 VSE is for [Spigot](https://www.spigotmc.org/) servers and adds several enhancements for VR players.
 
@@ -12,7 +12,7 @@ VSE is for [Spigot](https://www.spigotmc.org/) servers and adds several enhancem
 
 See the config.yml for all available configuration options.
 
-# Installation
+#Installation
 Download from the [Releases](https://github.com/jrbudda/Vivecraft_Spigot_Extensions/releases) page. Please ensure you download the correct version of the plugin as they are not backwards compatible.
 
 Install as you would any other Spigot/Bukkit plugin by placing the jar in the /plugins folder. 
@@ -31,3 +31,20 @@ Key(s) | Value
 `seated` | `Boolean` representing the player is in seated mode. This mode disables hand tracking and places the VR hands to the sides of the head, to allow for keyboard and mouse play in VR.
 `height` | `Float` representing whether the player's calibrated height, which mainly affects how tall they appear to other players.
 `activehand` | `String` representing which hand (left or right) last performed some actions. Currently throwing projectiles such as snowballs.
+
+# Permissions
+
+Permission                  | Default   | Description
+----------------------------|-----------|----------------------------------------------
+vive.use                    | true      | Whether or not to provide server integrations
+vive.climbanywhere          | op        | Permission to override climb limitations.
+vive.command.vive-only      | op        | Access to the /vse vive-only command
+vive.command.sendplayerdata | op        | Access to the /vse sendplayerdata command
+vive.command.creeperradius  | true      | Access to the /vse creeperradius command
+vive.command.waittime       | op        | Access to the /vse waittime command
+vive.command.bow            | op        | Access to the /vse bow command
+vive.command.list           | true      | Access to the /vse list command
+vive.command.set            | true      | Access to the /vse set command
+vive.command.version        | true      | Access to the /vse version command
+vive.command.checkforupdate | false     | Access to the /vse checkforupdate command
+vive.command.help           | true      | Access to the /vse help command

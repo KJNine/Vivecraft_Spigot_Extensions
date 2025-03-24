@@ -1,10 +1,15 @@
 package org.vivecraft.command;
 
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 
+import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.HoverEvent;
+import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.chat.hover.content.Content;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,11 +17,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.vivecraft.VSE;
 import org.vivecraft.VivePlayer;
-
-import net.md_5.bungee.api.ChatColor;
-import net.md_5.bungee.api.chat.ComponentBuilder;
-import net.md_5.bungee.api.chat.HoverEvent;
-import net.md_5.bungee.api.chat.TextComponent;
 
 public class ViveCommand implements CommandExecutor {
 
@@ -47,8 +47,7 @@ public class ViveCommand implements CommandExecutor {
 	@SuppressWarnings("rawtypes")
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		if (sender instanceof Player){
-			Player player = (Player) sender;
+		if (sender instanceof Player player){
 			if (args.length >= 1) {
 				Cmd cmd = commands.get(args[0].toLowerCase());
 				//
@@ -64,11 +63,11 @@ public class ViveCommand implements CommandExecutor {
 
 				if(cmd.getCommand().equals("vive-only")) {
 					if (args.length >= 2) {
-						if (args[1].toLowerCase().equals("true")) {
+						if (args[1].equalsIgnoreCase("true")) {
 							plugin.getConfig().set("vive-only.enabled", true);
 							sendMessage("Vive-Only has been enabled.", player);
 
-						} else if (args[1].toLowerCase().equals("false")) {
+						} else if (args[1].equalsIgnoreCase("false")) {
 							plugin.getConfig().set("vive-only.enabled", false);
 							sendMessage("Vive-Only has been disabled.", player);
 						}
@@ -80,10 +79,10 @@ public class ViveCommand implements CommandExecutor {
 			    //
 				if(cmd.getCommand().equals("sendplayerdata")){
 					if(args.length >= 2){
-						if(args[1].toLowerCase().equals("true")){
+						if(args[1].equalsIgnoreCase("true")){
 							plugin.getConfig().set("SendPlayerData.enabled", true);
 							sendMessage("SendPlayerData has been enabled.", player);
-						}else if (args[1].toLowerCase().equals("false")) {
+						}else if (args[1].equalsIgnoreCase("false")) {
 							plugin.getConfig().set("SendPlayerData.enabled", false);
 							sendMessage("SendPlayerData has been disabled.", player);
 						}
@@ -94,10 +93,10 @@ public class ViveCommand implements CommandExecutor {
 				//
 				if(cmd.getCommand().equals("creeperradius")){
 					if(args.length >= 2){
-						if(args[1].toLowerCase().equals("true")){
+						if(args[1].equalsIgnoreCase("true")){
 							plugin.getConfig().set("CreeperRadius.enabled", true);
 							sendMessage("Creeper Radius has been enabled.", player);
-						}else if (args[1].toLowerCase().equals("false")) {
+						}else if (args[1].equalsIgnoreCase("false")) {
 							plugin.getConfig().set("CreeperRadius.enabled", false);
 							sendMessage("Creeper Radius has been disabled.", player);
 						}else{
@@ -201,10 +200,10 @@ public class ViveCommand implements CommandExecutor {
 				//
 				if(cmd.getCommand().equals("checkforupdate")){
 					if(args.length >= 2){
-						if(args[1].toLowerCase().equals("true")){
+						if(args[1].equalsIgnoreCase("true")){
 							plugin.getConfig().set("checkforupdate.enabled", true);
 							sendMessage("Update checker has been enabled.", player);
-						}else if (args[1].toLowerCase().equals("false")) {
+						}else if (args[1].equalsIgnoreCase("false")) {
 							plugin.getConfig().set("checkforupdate.enabled", false);
 							sendMessage("Update checker has been disabled.", player);
 						}
@@ -230,13 +229,12 @@ public class ViveCommand implements CommandExecutor {
 			}else{
 				sendMessage("Download Vivecraft at http://www.vivecraft.org/ type '/vive help' to list options",player);
 			}
-		} else if (!(sender instanceof Player))
-			plugin.getLogger().info("Only players can run this command!");
+		} else plugin.getLogger().info("Only players can run this command!");
 		return true;
 	}
 	
 	public boolean isBoolean(String str){
-		return (str.toLowerCase().equals("true") || str.toLowerCase().equals("false"));
+		return (str.equalsIgnoreCase("true") || str.equalsIgnoreCase("false"));
 	}
 	
 	boolean isDouble(String str) {

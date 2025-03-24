@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.Callable;
 
+import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Material;
@@ -55,7 +56,6 @@ import org.vivecraft.utils.AimFixHandler;
 import org.vivecraft.utils.Headshot;
 import org.vivecraft.utils.MetadataHelper;
 
-import net.milkbowl.vault.permission.Permission;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.Connection;

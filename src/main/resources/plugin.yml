@@ -8,7 +8,7 @@ prefix: Vivecraft
 softdepend: [Vault]
 commands:
    vse:
-      aliases: [Vive]
+      aliases: [vive]
       description: Vivecraft Spigot Extensions
       usage: /<command> <command>
 permissions:
